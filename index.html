@@ -1,0 +1,409 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Employee Management System</title>
+  <style>
+   
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #551c1c;
+      color: #940000;
+    }
+
+    .container {
+      width: 100%;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+   
+    header {
+      background-color: #5a0303;
+      color: white;
+      padding: 15px 20px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+    }
+
+    .logo img {
+      height: 50px;
+      margin-right: 10px;
+    }
+
+    nav {
+      display: flex;
+      gap: 20px;
+    }
+
+    nav a {
+      color: white;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    nav a:hover {
+      text-decoration: underline;
+    }
+
+    .search-login {
+      display: flex;
+      gap: 10px;
+    }
+
+    .search-input {
+      padding: 5px;
+    }
+
+    .search-btn {
+      padding: 5px 10px;
+      background-color: #5a0300;
+      color: rgb(255, 255, 255);
+      border: none;
+      cursor: pointer;
+    }
+
+    .login-icon {
+      color: rgb(255, 255, 255);
+      cursor: pointer;
+      font-size: 1.0em;
+      background-color:#5a0300 ;
+      margin-top: 5px;
+    }
+
+    
+    .slideshow-container {
+      position: relative;
+      overflow: hidden;
+      margin: 20px 0;
+    }
+
+    .dot {
+        cursor: pointer;
+        height: 15px;
+        width: 15px;
+        margin: 0 2px;
+        background-color: #bbb;
+        border-radius: 50%;
+        display: inline-block;
+        transition: background-color 0.6s ease;
+    }
+
+
+    
+    .gallery {
+      margin: 20px 0;
+    }
+
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 10px;
+    }
+
+    .gallery-grid img {
+      width: 100%;
+      height: auto;
+      border-radius: 5px;
+    }
+
+   
+    .location {
+      margin: 20px 0;
+    }
+
+    iframe {
+      width: 100%;
+      height: 300px;
+      border: none;
+    }
+
+    
+    .youtube-video {
+      margin: 20px 0;
+      text-align: center;
+    }
+
+    
+    .social-media {
+      text-align: center;
+      margin: 20px 0;
+    }
+
+    .social-media a {
+      margin: 0 10px;
+      color: #720202;
+      font-size: 1.5em;
+      text-decoration: none;
+    }
+
+    .social-media a:hover {
+      color: #e74c3c;
+    }
+
+    /* Footer */
+    footer {
+      text-align: center;
+      padding: 10px;
+      background-color: #520505;
+      color: white;
+      margin-top: 20px;
+    }
+
+    
+    .modal {
+      display: none;
+      position: fixed;
+      z-index: 1;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(255, 234, 234, 0.5);
+    }
+
+    .modal-content {
+      background-color: #fff;
+      margin: 15% auto;
+      padding: 20px;
+      width: 300px;
+      border-radius: 5px;
+    }
+
+    .modal-content input {
+      width: 100%;
+      padding: 8px;
+      margin: 10px 0;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+
+    .modal-content button {
+      width: 100%;
+      padding: 10px;
+      background-color: #3a0802;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    .modal-content button:hover {
+      background-color: #fdfdfd;
+    }
+
+    .close {
+      color: #aaa;
+      float: right;
+      font-size: 28px;
+      font-weight: bold;
+    }
+
+    .close:hover,
+    .close:focus {
+      color: black;
+      text-decoration: none;
+      cursor: pointer;
+    }
+    .fa {
+      padding: 20px;
+      font-size: 30px;
+      width: 30px;
+      text-align: center;
+      text-decoration: none;
+      margin: 5px 2px;
+      border-radius: 50%;
+  }
+
+  .fa:hover {
+        opacity: 0.7;
+  }
+
+  .fa-facebook {
+      background: #3B5998;
+      color: white;
+  } 
+
+  .fa-twitter {
+      background: #55ACEE;
+      color: white;
+  }
+
+  .fa-google {
+      background: #dd4b39;
+      color: white;
+  }
+    .fa-youtube {
+        background: #bb0000;
+        color: white;
+    }
+
+
+
+
+  </style>
+</head>
+<body>
+  <div class="container">
+    
+    <header>
+      <div class="logo">
+        <img src="cu.png" alt="Website Logo">
+        <h1>Employee Management System</h1>
+      </div>
+      <nav>
+        <a href="#">Home</a>
+        <a href="#">Services</a>
+        <a href="#">Contact</a>
+      </nav>
+      <div class="search-login">
+        <input type="text" class="search-input" placeholder="Search...">
+        <button class="search-btn">Search</button>
+        <div class="login-icon" title="Login" id="loginBtn">login</div>
+      </div>
+    </header>
+
+    
+    <div class="slideshow-container">
+
+        <div class="mySlides fade">
+          <img src="11.png" style="width:100%">
+          
+        </div>
+        
+        <div class="mySlides fade">
+          <img src="22.png" style="width:100%">
+          
+        </div>
+        
+        <div class="mySlides fade"> 
+          <img src="33.jpg" style="width:100%">
+          
+        </div>
+        
+       
+        
+        </div>
+
+        <div style="text-align:center">
+            <span class="dot" onclick="currentSlide(1)"></span> 
+            <span class="dot" onclick="currentSlide(2)"></span> 
+            <span class="dot" onclick="currentSlide(3)"></span> 
+          </div>
+
+    
+    <div class="gallery">
+      <h2>Image Gallery</h2>
+      <div class="gallery-grid">
+        <img src="img1.jpg" alt="Gallery Image 1">
+        <img src="img2.jpg" alt="Gallery Image 2">
+        <img src="img3.jpg" alt="Gallery Image 3">
+        <img src="img4.jpg" alt="Gallery Image 4">
+        <img src="img1.jpg" alt="Gallery Image 1">
+        <img src="img2.jpg" alt="Gallery Image 2">
+        <img src="img3.jpg" alt="Gallery Image 3">
+        <img src="img1.jpg" alt="Gallery Image 4">
+      </div>
+    </div>
+
+    
+    <div class="location">
+      <h2>Our Location</h2>
+      <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d63137.77611245828!2d124.58603382110594!3d8.48858669874878!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x32fff2e7ff6d2ec9%3A0x180566d5585d5301!2sCapitol%20University!5e0!3m2!1sen!2sph!4v1731753867902!5m2!1sen!2sph" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+    </div>
+
+    
+    <div class="youtube-video">
+      <h2>Watch Our Introduction</h2>
+      <iframe width="560" height="315" src="https://www.youtube.com/embed/M5KWSZY0X9o?si=SmESVt6Jcf9rQ6b6" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+    </div>
+
+    
+    <div class="social-media">
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+      <h2>Connect with Us</h2>
+      <a href="#" class="fa fa-facebook"></a>
+    <a href="#" class="fa fa-twitter"></a>
+    <a href="#" class="fa fa-google"></a>
+    <a href="#" class="fa fa-youtube"></a>
+    </div>
+
+    
+
+  
+  <div id="loginModal" class="modal">
+    <div class="modal-content">
+      <span class="close" id="closeModal">&times;</span>
+      <h2>Login</h2>
+      <form id="loginForm">
+        <input type="text" id="username" placeholder="Username" required>
+        <input type="password" id="password" placeholder="Password" required>
+        <button type="button" class="btn btn-default btn-sm">
+            <a href="dashboard.html" class="glyphicon glyphicon-log-in"></span> Log in
+          </button>
+      </form>
+    </div>
+  </div>
+
+  <script>
+    // Slideshow Logic
+    let slideIndex = 1;
+showSlides(slideIndex);
+
+function plusSlides(n) {
+  showSlides(slideIndex += n);
+}
+
+function currentSlide(n) {
+  showSlides(slideIndex = n);
+}
+
+function showSlides(n) {
+  let i;
+  let slides = document.getElementsByClassName("mySlides");
+  let dots = document.getElementsByClassName("dot");
+  if (n > slides.length) {slideIndex = 1}    
+  if (n < 1) {slideIndex = slides.length}
+  for (i = 0; i < slides.length; i++) {
+    slides[i].style.display = "none";  
+  }
+  for (i = 0; i < dots.length; i++) {
+    dots[i].className = dots[i].className.replace(" active", "");
+  }
+  slides[slideIndex-1].style.display = "block";  
+  dots[slideIndex-1].className += " active";
+}
+
+    // Login Modal Logic
+    const loginBtn = document.getElementById('loginBtn');
+    const loginModal = document.getElementById('loginModal');
+    const closeModal = document.getElementById('closeModal');
+    const loginForm = document.getElementById('loginForm');
+
+    loginBtn.onclick = function() {
+      loginModal.style.display = 'block';
+    }
+
+    closeModal.onclick = function() {
+      loginModal.style.display = 'none';
+    }
+
+    window.onclick = function(event) {
+      if (event.target === loginModal) {
+        loginModal.style.display = 'none';
+      }
+    }
+
+
+  </script>
+</body>
+</html>
